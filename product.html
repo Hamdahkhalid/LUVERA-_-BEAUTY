@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luvéra Beauty - Product Showcase</title>
+
+  <!-- ✅ Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ✅ Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* 🌟 Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    /* Top Strip - Hover Stop */
+    .top-strip {
+      background-color: #FFCCD1;
+      color: #B80028;
+      font-size: 12px;
+      font-weight: 500;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .strip-content {
+      display: flex;
+      gap: 60px;
+      animation: scrollLoop 15s linear infinite;
+    }
+    .top-strip:hover .strip-content {
+      animation-play-state: paused;
+    }
+    .strip-content span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .strip-content i {
+      color: #B80028;
+    }
+    @keyframes scrollLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Header */
+    .header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 5%;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      min-height: 80px;
+    }
+    
+    /* Brand Logo and Name - TOP LEFT CORNER */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo {
+      height: 40px;
+      width: auto;
+    }
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+    }
+    
+    /* Header Right Section - TOP RIGHT CORNER */
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    
+    /* Customer Service & Search - Below Top Strip */
+    .header-top-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .customer-service {
+      font-size: 12px;
+      color: #666;
+      white-space: nowrap;
+    }
+    .search-bar {
+      position: relative;
+      width: 180px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 12px;
+      background-color: #f8f8f8;
+    }
+    
+    /* Header Icons - Below Customer Service & Search */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header-icons a {
+      color: #444;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .header-icons a:hover { 
+      color: #000; 
+    }
+
+/*  Navbar */
+      nav {
+            background-color: #000;
+            padding: 9px 7%;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            margin: 4px 12px;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        nav a:hover { 
+            color: #fad391; 
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1.5px;
+            background-color: #fad391;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after { 
+            width: 100%; 
+        }
+
+        /* Hamburger Menu - Show at 909px */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px 8px;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        /* ✅ 909px BREAKPOINT - Hamburger Menu */
+        @media (max-width: 909px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                padding: 8px 5% 8px 50px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #000;
+                z-index: 999;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            nav a {
+                margin: 5px 0;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                font-size: 14px;
+            }
+        }
+
+    
+ @media (max-width: 909px) {
+            .hero {
+                height: 40vh;
+                min-height: 200px;
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+
+    /* Hero Section */
+    .hero-section { 
+      width: 100%; 
+      overflow: hidden;
+    } 
+    .hero-img {
+      width: 100%; 
+      height: auto; 
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background-color: #f8f8f8;
+      padding: 10px 5%;
+      font-size: 14px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+    }
+    .breadcrumb a {
+      color: #666   !important;
+      text-decoration: none   !important;
+    }
+    .breadcrumb a:hover {
+      color: #666     !important;    
+      text-decoration:none   !important;
+    }
+ /* Main Content Layout */
+    .main-container {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto 40px;
+      padding: 0 5%;
+      gap: 20px;
+    }
+
+  
+    /* Compact Sidebar */
+    .sidebar {
+      flex: 0 0 220px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    .filter-section {
+      margin-bottom: 20px;
+    }
+
+    .filter-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e85a8b;
+      color: #333;
+    }
+
+    .filter-options {
+      list-style: none;
+    }
+
+    .filter-options li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .filter-options input[type="checkbox"] {
+      margin-right: 8px;
+      accent-color: #e85a8b;
+    }
+
+    .filter-options label {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .price-inputs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .price-inputs input {
+      flex: 1;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .apply-btn {
+      background-color: #e85a8b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .apply-btn:hover {
+      background-color: #c94c77;
+    }
+
+    /* 🆕 MINI CAROUSEL */
+    .mini-carousel {
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .carousel-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    .carousel-caption {
+      background: rgba(0,0,0,0.6);
+      padding: 8px;
+      border-radius: 4px;
+      bottom: 10px;
+      font-size: 12px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+    }
+    
+    .carousel-indicators {
+      bottom: -25px;
+    }
+    
+    .carousel-indicators button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin: 0 3px;
+    }
+
+    /* Products Section */
+    .products-section {
+      flex: 1;
+    }
+    
+    /* Product Controls */
+    .product-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .view-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .view-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    .view-icons {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    
+    .view-icon {
+      padding: 6px 12px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .view-icon.active {
+      background-color: #e85a8b;
+      color: white;
+    }
+    
+    .view-icon:hover:not(.active) {
+      background-color: #f5f5f5;
+    }
+    
+    .sort-by {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .control-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    .control-select {
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: white;
+      cursor: pointer;
+    }
+    
+    /* 💅 PRODUCT CARD - SMALLER SIZE */
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    /* Grid View (Default) - SMALLER CARDS */
+    .products-container.grid-view .product-card {
+      flex: 0 0 calc(25% - 15px); /* 4 cards per row */
+      max-width: calc(25% - 15px);
+    }
+    
+    /* List View */
+    .products-container.list-view {
+      flex-direction: column;
+    }
+    
+    .products-container.list-view .product-card {
+      flex: 0 0 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .products-container.list-view .image-container {
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+    
+    .products-container.list-view .card-body {
+      text-align: left;
+      padding: 0 15px;
+      flex-grow: 1;
+    }
+    
+    .product-card {
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+    }
+    .image-container img {
+      width: 100%;
+      height: 180px; /* Fixed height for consistency */
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+    .image-container .second-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .image-container:hover .second-img {
+      opacity: 1;
+    }
+
+    /* Quick Add Button */
+    .quick-add-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.7);
+      color: white;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 15px;
+      opacity: 0;
+      transition: 0.3s;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .image-container:hover .quick-add-btn {
+      opacity: 1;
+    }
+    .quick-add-btn:hover {
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    /* 🩷 CARD BODY */
+    .card-body {
+      text-align: center;
+      padding: 12px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+    .price {
+      color: #e85a8b;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+   
+    /* MODAL STYLING */
+    .modal-content {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .modal-body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+    .modal-body img {
+      width: 280px;
+      border-radius: 15px;
+    }
+    .product-details {
+      max-width: 400px;
+    }
+    .product-details h4 {
+      font-weight: 600;
+    }
+    .product-details p {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+    .quantity-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .quantity-box button {
+      border: 1px solid #ccc;
+      background: #f2f2f2;
+      width: 30px;
+      height: 30px;
+    }
+    .btn-cart {
+      background-color: #aaa;
+      border: none;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin-right: 10px;
+    }
+    .btn-cart:hover {
+      background-color: #888;
+    }
+    .btn-buy {
+      background-color: #e85a8b;
+      border: none;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+    }
+    .btn-buy:hover {
+      background-color: #c94c77;
+    }
+
+    /* Shade Options */
+    .shade-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    .shade-box {
+      border: 1px solid #aaa;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: transparent;
+      transition: 0.3s;
+    }
+    .shade-box:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    .shade-box.active {
+      border-color: #555;
+      background-color: rgba(85,85,85,0.2);
+    }
+ /* Sign In Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+    }
+    .modal h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .modal input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .modal button {
+      padding: 12px;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .modal button:hover {
+      background: #333;
+    }
+
+    /* WhatsApp Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+     
+   /* 👣 FOOTER */
+    footer {
+      background-color: #000;
+      padding: 50px 0 20px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .footer-section h3 {
+      font-size: 15px;
+      font-family:'poppins';
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #fff;
+      position: relative;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: #f2cd5e;
+    }
+
+    .footer-section p {
+      color: #fff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family:'poppins';
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-family:'poppins';
+      font-size: 12px
+      
+    }
+
+    .footer-links a:hover {
+      color: #f2cd5e;
+      transform: translateX(5px);
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 20px;  /* previously i add 16px margin but it's too small so thats why i include 20px margin bottom. */
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+    }
+
+    .contact-info i {
+      color: #f2cd5e;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 12px;
+      font-family:'poppins';
+    }
+
+    .contact-info span {
+      color: #fff;
+    }
+
+    .contact-info a:hover {
+      color:#f2cd5e;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 50%;
+      color: #000;
+      font-size: 18px;
+      font-family:'poppins';
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .social-icons a:hover {
+      background-color: #f2cd5e;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(250, 211, 145, 0.4);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid #eaeaea;
+      color: #fff;
+      font-size: 14px;
+      font-family:'poppins';
+    }
+
+
+    /* 🔹 Responsive Design */
+    @media (max-width: 1200px) {
+      .products-container.grid-view .product-card {
+        flex: 0 0 calc(33.333% - 15px);
+        max-width: calc(33.333% - 15px);
+      }
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .modal-dialog {
+        max-width: 95% !important;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .products-container.grid-view .product-card {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+      }
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        flex: 1;
+        margin-bottom: 30px;
+      }
+      .product-controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .modal-body {
+        flex-direction: column;
+        text-align: center;
+      }
+      .modal-body img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      .header-right {
+        align-items: center;
+        width: 100%;
+      }
+      .header-top-right {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      .search-bar {
+        width: 100%;
+      }
+      .header-icons {
+        justify-content: center;
+        width: 100%;
+      }
+      .modal-body {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .products-container.grid-view .product-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .brand-name {
+        font-size: 18px;
+      }
+      .brand-logo {
+        height: 35px;
+      }
+      .image-container img {
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ⚡ Top Strip -->
+  <div class="top-strip">
+    <div class="strip-content">
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">    
+    <!-- Brand Logo and Name - TOP LEFT CORNER -->
+    <div class="brand">
+      <img src="https://t4.ftcdn.net/jpg/00/95/06/89/360_F_95068917_5llcIF4URMD2CAepffpVcJGfpdx83ufz.jpg" alt="Luvéra Beauty" class="brand-logo">
+      <span class="brand-name">Luvéra Beauty</span>
+    </div>
+    
+    <!-- Header Right Section - TOP RIGHT CORNER -->
+    <div class="header-right">
+      <!-- Customer Service & Search - Below Top Strip -->
+      <div class="header-top-right">
+        <div class="customer-service">
+          <i class="fas fa-headset"></i> Customer Service: +92 3174078664
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search products..." id="search-input">
+        </div>
+      </div>
+      
+      <!-- Header Icons - Below Customer Service & Search -->
+      <div class="header-icons">
+        <a href="#"><i class="fa-solid fa-bag-shopping"></i> Cart (0)</a>
+        <a href="#"><i class="fa-regular fa-heart"></i> Wishlist</a>
+        <a href="#" id="signin-link"><i class="fa-regular fa-user"></i> Sign In</a>
+      </div>
+    </div>
+  </div>
+
+ <!-- Navbar -->
+  <nav>
+    <button class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="product.html">All Products</a>
+      <a href="foundation.html">Foundation</a>
+      <a href="eyeshadow.html">Eye Shadows</a>
+      <a href="lipstick.html">Lipsticks</a>
+      <a href="hot.html">Hot Deals</a>
+      <a href="skincare.html">Skin Care</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+  </nav>
+  <!-- Main Content Area -->
+  <div id="main-content">
+    <!-- 🖼️ Hero Banner -->
+    <section class="hero-section">
+      <img src="https://www.shutterstock.com/image-vector/makeup-products-realistic-vector-illustration-600nw-2220636093.jpg" alt="All Products Banner" class="hero-img">
+    </section>
+
+    <!--breadcrumb-->
+ <div id="breadcrumb"></div>
+
+    <!-- Main Container with Sidebar and Products -->
+    <div class="main-container">
+        <!-- Sidebar Filters -->
+      <div class="sidebar">
+        <div class="filter-section">
+          <h3 class="filter-title">CATEGORIES</h3>
+          <ul class="filter-options">
+            <li>
+              <input type="checkbox" id="eye" class="category-filter" data-category="eye">
+              <label for="eye">Eye</label>
+            </li>
+            <li>
+              <input type="checkbox" id="foundation" class="category-filter" data-category="foundation">
+              <label for="foundation">Foundation</label>
+            </li>
+            <li>
+              <input type="checkbox" id="lips" class="category-filter" data-category="lips">
+              <label for="lips">Lips</label>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="filter-section">
+          <h3 class="filter-title">AVAILABILITY</h3>
+          <ul class="filter-options">
+            <li>
+              <input type="checkbox" id="in-stock" class="availability-filter" data-availability="in-stock" checked>
+              <label for="in-stock">In Stock (44)</label>
+            </li>
+            <li>
+              <input type="checkbox" id="out-stock" class="availability-filter" data-availability="out-stock">
+              <label for="out-stock">Out of Stock (2)</label> 
+            </li>
+          </ul>
+        </div>
+        
+        <div class="filter-section">
+          <h3 class="filter-title">PRICE</h3>
+          <div class="price-inputs">
+            <input type="number" id="minPrice" placeholder="200" value="200" min="0">
+            <input type="number" id="maxPrice" placeholder="1050" value="1050" min="0">
+          </div>
+          <button class="apply-btn" id="applyPriceFilter">APPLY</button>
+        </div>
+                       <!-- 🆕 MINI CAROUSEL -->
+        <div class="mini-carousel">
+          <div id="sidebarCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#sidebarCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#sidebarCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#sidebarCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://i0.wp.com/missrosecosmetics.com.pk/wp-content/uploads/2023/09/51Ibr5aWw0L._SX450_.jpg?fit=450%2C381&ssl=1?v=1666734190?w=400&h=200&fit=crop" class="d-block w-100" alt="Beauty Products">
+                <div class="carousel-caption">
+                  <p> A Lipstick Pallete a single compact containing multiple shades of lipstick.
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ5MWCYih_1qtRHE8kNq-Yu8WE5iRYCv66Gw&s?w=400&h=200&fit=crop" class="d-block w-100" alt="From applicators to massage tools, they help improve product absorption and boost overall results">
+                <div class="carousel-caption">
+                  <p>Bring the spa experience home.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://shopatshams.com.pk/cdn/shop/products/3378872086536.png?v=1669885508?w=400&h=200&fit=crop" class="d-block w-100" alt="Makeup">
+                <div class="carousel-caption">
+                  <p>Premium Luxury Sephora Blush delivers a silky, radiant finish that elevates your makeup</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#sidebarCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#sidebarCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Products Section -->
+      <div class="products-section">
+        <!-- Product Controls -->
+        <div class="product-controls">
+          <div class="view-options">
+            <span class="view-label">View as</span>
+            <div class="view-icons">
+              <div class="view-icon active" id="gridView" title="Grid View">
+                <i class="fas fa-th"></i>
+              </div>
+              <div class="view-icon" id="listView" title="List View">
+                <i class="fas fa-list"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sort-by">
+            <span class="control-label">SORT BY</span>
+            <select class="control-select" id="sortBy">
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Products Container -->
+        <div class="products-container grid-view" id="productsContainer">
+          <!-- PRODUCT 1: Eyeliner - EYE -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product1Modal" data-price="450" data-category="eye" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://img.drz.lazcdn.com/static/pk/p/54eba98414243a230288108f0810d585.jpg_960x960q80.jpg_.webp" class="first-img">
+              <img src="https://www.wcosmetics.com.au/cdn/shop/products/8bf1be2c-d8d0-49d3-add3-52b4cf0fd9bb.jpg?v=1756450064" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Ultra Black Eyeliner</h6>
+              <p class="price">Rs: 450</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 2: Compact Powder - FOUNDATION -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product2Modal" data-price="850" data-category="foundation" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://5.imimg.com/data5/ECOM/Default/2024/3/403915917/VF/DF/XR/70444758/1677680496376-edb545c65b934062a1e112b1403c9741-goods.jpg" class="first-img">
+              <img src="https://img.kwcdn.com/product/fancy/1fad1787-76a1-4883-8040-49aa4cf82a49.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Compact Powder</h6>
+              <p class="price">Rs: 850</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 3: Primer - FOUNDATION -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product3Modal" data-price="750" data-category="foundation" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://www.colorshow.pk/cdn/shop/products/EMIF01-A-2.jpg?v=1755685647" class="first-img">
+              <img src="https://i5.walmartimages.com/seo/e-l-f-Studio-Mineral-Infused-Face-Primer-Tone-Adjusting-Green-0-47-oz-Pack-of-2_1e916327-dd3b-41d5-9213-77ba7fca8037_1.0b869691c4ddc8329b68dd6ac374f9ef.jpeg" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA 3 in 1 Primer</h6>
+              <p class="price">Rs: 750</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 4: Lipstick Palette - LIPS -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product4Modal" data-price="1200" data-category="lips" data-availability="out-stock">
+            <div class="image-container">
+              <img src="https://missrosecosmetics.com.pk/wp-content/uploads/2023/09/51Ibr5aWw0L._SX450_.jpg" class="first-img">
+              <img src="https://i.pinimg.com/736x/d7/95/d7/d795d799535a140487befdcff115ac25.jpg" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Lipstick Palette</h6>
+              <p class="price">Rs: 1200</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 5: Mascara - EYE -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product5Modal" data-price="650" data-category="eye" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://media-cdn.oriflame.com/productImage?externalMediaId=product-management-media%2FProducts%2F44655%2F44655_1.png&MediaId=18927797&Version=4" class="first-img">
+              <img src="https://media-cdn.oriflame.com/productImage?externalMediaId=product-management-media%2FProducts%2F44655%2F44655_9.png&MediaId=18927795&Version=4" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA 4D Mascara</h6>
+              <p class="price">Rs: 650</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 6: Foundation - FOUNDATION -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product6Modal" data-price="1500" data-category="foundation" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://mohsinsaeedfabrics.pk/cdn/shop/products/radiantfoundation02.jpg?v=1677142331&width=1200" class="first-img">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC9r9HIbmAX0gfQzBrKyEypMMcNp19Ln_XZw4mwxQugdGyoBDhXzbEAwhnMR-SZPXTRKU&usqp=CAU" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Liquid Foundation</h6>
+              <p class="price">Rs: 1500</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 7: Eyeshadow Palette - EYE -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product7Modal" data-price="890" data-category="eye" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://www.narscosmetics.com/dw/image/v2/BBSK_PRD/on/demandware.static/-/Sites-itemmaster_NARS/default/dwd9aff8dc/2024/October/EyeshadowPalette/0194251149011_7.jpg?sw=800&sh=800&sm=fit" class="first-img">
+              <img src="https://m.media-amazon.com/images/I/612yN6aeGDL._SL1001_.jpg" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Eyeshadow Palette</h6>
+              <p class="price">Rs: 890</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 8: Blush - LIPS -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product8Modal" data-price="799" data-category="lips" data-availability="out-stock">
+            <div class="image-container">
+              <img src="https://m.media-amazon.com/images/I/51LY8zWWFdL._UF894,1000_QL80_.jpg" class="first-img">
+              <img src="https://cloudshopbd.com/wp-content/uploads/2025/01/SHEGLAM-Color-Bloom-Liquid-Blush-2.jpg" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Liquid Blush</h6>
+              <p class="price">Rs: 799</p>
+            </div>
+          </div>
+
+          <!-- PRODUCT 9: concealer - FOUNDATION -->
+          <div class="product-card" data-bs-toggle="modal" data-bs-target="#product9Modal" data-price="1050" data-category="foundation" data-availability="in-stock">
+            <div class="image-container">
+              <img src="https://m.media-amazon.com/images/I/61RPeSifXqL._UF350,350_QL80_.jpg" class="first-img">
+              <img src="https://static.sweetcare.com/img/prd/488/v-638430916143687790/la-girl-016857yg-1.webp" class="second-img">
+              <button class="quick-add-btn">Quick Add</button>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">LUVÉRA Concealer</h6>
+              <p class="price">Rs: 1050</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Sign In Modal -->
+  <div id="signin-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Sign In</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+      </form>
+      <p style="text-align:center; margin-top:15px; font-size:14px;">
+        Don't have an account? <a href="#" style="color:#000; font-weight:500;">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/923174078664" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+ <!-- MODALS -->
+  <!-- PRODUCT 1 MODAL (EYELINER) -->
+  <div class="modal fade" id="product1Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://img.drz.lazcdn.com/static/pk/p/54eba98414243a230288108f0810d585.jpg_960x960q80.jpg_.webp">
+          <div class="product-details">
+            <h4>LUVÉRA Ultra Black Eyeliner</h4>
+            <p>Waterproof, long-lasting & smudge proof eyeliner.</p>
+            <p><b>Price:</b> Rs <span class="product-price">450</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">450</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2 MODAL (COMPACT POWDER) -->
+  <div class="modal fade" id="product2Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://5.imimg.com/data5/ECOM/Default/2024/3/403915917/VF/DF/XR/70444758/1677680496376-edb545c65b934062a1e112b1403c9741-goods.jpg">
+          <div class="product-details">
+            <h4>LUVÉRA Compact Powder</h4>
+            <p>Lightweight & smooth finish compact for daily use.</p>
+            <p><b>Price:</b> Rs <span class="product-price">850</span></p>
+
+            <!-- Shade Selection -->
+            <div class="shade-options">
+              <div class="shade-box">01 - White Ivory</div>
+              <div class="shade-box">02 - Soft Ivory</div>
+              <div class="shade-box">03 - Natural Beige</div>
+              <div class="shade-box">04 - Natural Nude</div>
+            </div>
+
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">850</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  PRODUCT 3 MODAL (PRIMER) -->
+  <div class="modal fade" id="product3Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://www.colorshow.pk/cdn/shop/products/EMIF01-A-2.jpg?v=1755685647">
+          <div class="product-details">
+            <h4>LUVÉRA 3 in 1 Primer | Protects, Moisturises, Long Lasting</h4>
+            <p style="font-size: 13px; color: #888;">5 sold in last 10 hours</p>
+            <p><b>Price:</b> Rs <span class="product-price">750</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">750</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 4 MODAL (LIPSTICK PALETTE) -->
+  <div class="modal fade" id="product4Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://missrosecosmetics.com.pk/wp-content/uploads/2023/09/51Ibr5aWw0L._SX450_.jpg">
+          <div class="product-details">
+            <h4>LUVÉRA Lipstick Palette</h4>
+            <p>Vibrant matte lip colors in a convenient palette.</p>
+            <p><b>Price:</b> Rs <span class="product-price">1200</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">1200</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 5 MODAL (MASCARA) -->
+  <div class="modal fade" id="product5Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://media-cdn.oriflame.com/productImage?externalMediaId=product-management-media%2FProducts%2F44655%2F44655_1.png&MediaId=18927797&Version=4">
+          <div class="product-details">
+            <h4>LUVÉRA 4D Mascara</h4>
+            <p>Lift and curl waterproof mascara for volume and length.</p>
+            <p><b>Price:</b> Rs <span class="product-price">650</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">650</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 6 MODAL (FOUNDATION) -->
+  <div class="modal fade" id="product6Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://mohsinsaeedfabrics.pk/cdn/shop/products/radiantfoundation02.jpg?v=1677142331&width=1200 ">
+          <div class="product-details">
+            <h4>LUVÉRA Liquid Foundation</h4>
+            <p>Full coverage liquid foundation with natural finish.</p>
+            <p><b>Price:</b> Rs <span class="product-price">1500</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">1500</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 7 MODAL (EYESHADOW PALETTE) -->
+  <div class="modal fade" id="product7Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://www.narscosmetics.com/dw/image/v2/BBSK_PRD/on/demandware.static/-/Sites-itemmaster_NARS/default/dwd9aff8dc/2024/October/EyeshadowPalette/0194251149011_7.jpg?sw=800&sh=800&sm=fit">
+          <div class="product-details">
+            <h4>LUVÉRA Eyeshadow Palette</h4>
+            <p>12 highly pigmented matte and shimmer eyeshadows.</p>
+            <p><b>Price:</b> Rs <span class="product-price">890</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">890</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 8 MODAL (BLUSH) -->
+  <div class="modal fade" id="product8Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://m.media-amazon.com/images/I/51LY8zWWFdL._UF894,1000_QL80_.jpg">
+          <div class="product-details">
+            <h4>LUVÉRA Powder Blush</h4>
+            <p>Silky powder blush for a natural flushed look.</p>
+            <p><b>Price:</b> Rs <span class="product-price">799</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">799</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  PRODUCT 9 MODAL (concealer) -->
+  <div class="modal fade" id="product9Modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://m.media-amazon.com/images/I/61RPeSifXqL._UF350,350_QL80_.jpg">
+          <div class="product-details">
+            <h4>LUVÉRA Concealer - conceal it blend it own it</h4>
+            <p>High coverage concealer for flawless complexion.</p>
+            <p><b>Price:</b> Rs <span class="product-price">1050</span></p>
+            <div class="quantity-box">
+              <button class="decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-qty">+</button>
+            </div>
+            <p><b>Subtotal:</b> Rs <span class="subtotal">1050</span></p>
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>ABOUT US</h3>
+        <p>At Luvéra Beauty, we believe beauty is more than just empowered—it's about confidence and self-care. Our products are designed to make beauty simple, safe, and enjoyable.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>INFORMATION</h3>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Returns & Cancellation</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return & Exchange</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>SHOP</h3>
+        <ul class="footer-links">
+          <li><a href="eyeshadow.html">Eyeshadow</a></li>
+          <li><a href="foundation.html">Foundation</a></li>
+          <li><a href="lipsticks.html">Lipsticks</a></li>
+          <li><a href="hot.html">Hot Deals</a></li>
+          <li><a href="skincare.html">Skin Care</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>CONTACT US</h3>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <a href="https://wa.me/923174078664" target="_blank">+923174078664</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:LUVERABEAUTY@gmail.com">LUVERABEAUTY@gmail.com</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span> Shah Alam Market, Lahore</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>Luvéra Beauty. All Rights Reserved. Create and Designed By Hamdah Khalid.</p>
+    </div>
+  </footer>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Sign In Modal
+    const signinModal = document.getElementById('signin-modal');
+    const signinLink = document.getElementById('signin-link');
+    const closeModal = document.querySelector('.close-modal');
+    
+    signinLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      signinModal.style.display = 'block';
+    });
+    
+    closeModal.addEventListener('click', () => {
+      signinModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === signinModal) {
+        signinModal.style.display = 'none';
+      }
+    });
+    
+    //breadcrumb
+    document.addEventListener("DOMContentLoaded", function () {
+      const breadcrumbContainer = document.getElementById("breadcrumb");
+      if (!breadcrumbContainer) return;
+
+      // Known Titles (optional)
+      const pageTitles = {
+        "index.html": "Home",
+        "product.html": "All Products",
+        "foundation.html": "Foundations",
+        "eyeshadow.html": "Eye Shadows",
+        "lipstick.html": "Lipsticks",
+        "hot.html": "Hot Deals",
+        "skincare.html": "Skin Care",
+        "contactus.html": "Contact Us"
+      };
+
+      // Get current page name
+      let currentPage = window.location.pathname.split("/").pop();
+
+      // If empty → index.html
+      if (!currentPage) currentPage = "index.html";
+
+      // Convert unknown filenames to readable text
+      let readableName = pageTitles[currentPage] 
+        || currentPage.replace(".html", "").replace(".asp","")
+             .replace(/[-_]/g, " ")
+             .replace(/\b\w/g, (c) => c.toUpperCase());
+
+      // Build Breadcrumb
+      let breadcrumbHTML = `<a href="index.html">Home</a>`;
+
+      if (currentPage !== "index.html") {
+        breadcrumbHTML += ` <span class="separator">></span> `;
+        breadcrumbHTML += `<span class="current-page">${readableName}</span>`;
+      }
+
+      breadcrumbContainer.innerHTML = breadcrumbHTML;
+    });
+
+   
+    // Price Filter Functionality
+    document.getElementById('applyPriceFilter').addEventListener('click', function() {
+      const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+      const maxPrice = parseInt(document.getElementById('maxPrice').value) || 10000;
+      
+      const productCards = document.querySelectorAll('.product-card');
+      
+      productCards.forEach(card => {
+        const price = parseInt(card.getAttribute('data-price'));
+        
+        if (price >= minPrice && price <= maxPrice) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // 🆕 Categories Filter Functionality
+    document.querySelectorAll('.category-filter').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked'))
+          .map(cb => cb.getAttribute('data-category'));
+        
+        const productCards = document.querySelectorAll('.product-card');
+        
+        if (selectedCategories.length === 0) {
+          // If no category is selected, show all products
+          productCards.forEach(card => {
+            card.style.display = 'block';
+          });
+        } else {
+          // Show only products that match selected categories
+          productCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (selectedCategories.includes(category)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+
+    // Sort By Functionality
+    document.getElementById('sortBy').addEventListener('change', function() {
+      const sortValue = this.value;
+      const productsContainer = document.getElementById('productsContainer');
+      const productCards = Array.from(productsContainer.querySelectorAll('.product-card'));
+      
+      productCards.sort((a, b) => {
+        const priceA = parseInt(a.getAttribute('data-price'));
+        const priceB = parseInt(b.getAttribute('data-price'));
+        const nameA = a.querySelector('.card-title').textContent.toLowerCase();
+        const nameB = b.querySelector('.card-title').textContent.toLowerCase();
+        
+        switch(sortValue) {
+          case 'price-low':
+            return priceA - priceB;
+          case 'price-high':
+            return priceB - priceA;
+          case 'name':
+            return nameA.localeCompare(nameB);
+          default:
+            return 0;
+        }
+      });
+      
+      // Clear container and append sorted cards
+      productsContainer.innerHTML = '';
+      productCards.forEach(card => {
+        productsContainer.appendChild(card);
+      });
+    });
+
+    // 🆕 FIXED MODAL QUANTITY FUNCTIONALITY FOR ALL MODALS
+    function setupModalQuantity(modal) {
+      const priceElement = modal.querySelector('.product-price');
+      const quantityElement = modal.querySelector('.quantity');
+      const subtotalElement = modal.querySelector('.subtotal');
+      const decreaseBtn = modal.querySelector('.decrease-qty');
+      const increaseBtn = modal.querySelector('.increase-qty');
+      
+      if (!priceElement || !quantityElement || !subtotalElement) return;
+      
+      const price = parseInt(priceElement.textContent);
+      
+      // Reset quantity to 1 when modal opens
+      quantityElement.textContent = '1';
+      subtotalElement.textContent = price;
+      
+      // Add event listeners for quantity buttons
+      decreaseBtn.onclick = function() {
+        let quantity = parseInt(quantityElement.textContent);
+        if (quantity > 1) {
+          quantity--;
+          quantityElement.textContent = quantity;
+          subtotalElement.textContent = price * quantity;
+        }
+      };
+      
+      increaseBtn.onclick = function() {
+        let quantity = parseInt(quantityElement.textContent);
+        quantity++;
+        quantityElement.textContent = quantity;
+        subtotalElement.textContent = price * quantity;
+      };
+    }
+
+    // Set up modal quantity controls when modals are shown
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('show.bs.modal', function() {
+        setupModalQuantity(this);
+      });
+    });
+
+ // 🆕 Availability Filter Functionality
+    document.querySelectorAll('.availability-filter').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const selectedAvailability = Array.from(document.querySelectorAll('.availability-filter:checked'))
+          .map(cb => cb.getAttribute('data-availability'));
+        
+        const productCards = document.querySelectorAll('.product-card');
+        
+        if (selectedAvailability.length === 0) {
+          // If no availability is selected, show all products
+          productCards.forEach(card => {
+            card.style.display = 'block';
+          });
+        } else {
+          // Show only products that match selected availability
+          productCards.forEach(card => {
+            const availability = card.getAttribute('data-availability');
+            if (selectedAvailability.includes(availability)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+
+    // Shade Selection Script
+    document.querySelectorAll('.shade-box').forEach(box => {
+      box.addEventListener('click', () => {
+        // Remove active class from all shade boxes in the same modal
+        const modal = box.closest('.modal-body');
+        if (modal) {
+          modal.querySelectorAll('.shade-box').forEach(b => b.classList.remove('active'));
+        }
+        // Add active class to clicked shade box
+        box.classList.add('active');
+      });
+    });
+
+    // Search Functionality
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          const searchTerm = searchInput.value.trim();
+          if (searchTerm) {
+            alert(`Searching for: ${searchTerm}`);
+          }
+        }
+      });
+    }
+  </script> 
+</body>
+</html>

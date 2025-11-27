@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luvéra Beauty</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    /* Top Strip - Hover Stop */
+    .top-strip {
+      background-color: #FFCCD1;
+      color: #B80028;
+      font-size: 12px;
+      font-weight: 500;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .strip-content {
+      display: flex;
+      gap: 60px;
+      animation: scrollLoop 15s linear infinite;
+    }
+    .top-strip:hover .strip-content {
+      animation-play-state: paused;
+    }
+    .strip-content span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .strip-content i {
+      color: #B80028;
+    }
+    @keyframes scrollLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Header */
+    .header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 5%;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      min-height: 80px;
+    }
+    
+    /* Brand Logo and Name - TOP LEFT CORNER */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo {
+      height: 40px;
+      width: auto;
+    }
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+    }
+    
+    /* Header Right Section - TOP RIGHT CORNER */
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    
+    /* Customer Service & Search - Below Top Strip */
+    .header-top-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .customer-service {
+      font-size: 12px;
+      color: #666;
+      white-space: nowrap;
+    }
+    .search-bar {
+      position: relative;
+      width: 180px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 12px;
+      background-color: #f8f8f8;
+    }
+    
+    /* Header Icons - Below Customer Service & Search */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header-icons a {
+      color: #444;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .header-icons a:hover { 
+      color: #000; 
+    }
+        /*  Navbar */
+      nav {
+            background-color: #000;
+            padding: 9px 7%;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            margin: 4px 12px;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        nav a:hover { 
+            color: #fad391; 
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1.5px;
+            background-color: #fad391;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after { 
+            width: 100%; 
+        }
+
+        /* Hamburger Menu - Show at 909px */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px 8px;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        /* ✅ 909px BREAKPOINT - Hamburger Menu */
+        @media (max-width: 909px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                padding: 8px 5% 8px 50px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #000;
+                z-index: 999;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            nav a {
+                margin: 5px 0;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                font-size: 14px;
+            }
+        }
+
+    
+ @media (max-width: 909px) {
+            .hero {
+                height: 40vh;
+                min-height: 200px;
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+
+    /* Hero Section */
+    .hero-section { 
+      width: 100%; 
+      overflow: hidden;
+    } 
+    .hero-img {
+      width: 100%; 
+      height: auto; 
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background-color: #f8f8f8;
+      padding: 10px 5%;
+      font-size: 14px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+    }
+    .breadcrumb a {
+      color: #666;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    /* Section Titles */
+    .section-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+    .line {
+      flex: 1;
+      height: 2px;
+      background-color: #000;
+      max-width: 250px;
+      margin: 0 20px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 1px;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    /* Product Cards */
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+    }
+    .image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+    .image-container img.first-img {
+      opacity: 1;
+    }
+    .image-container img.second-img {
+      opacity: 0;
+    }
+    .image-container:hover img.first-img {
+      opacity: 0;
+    }
+    .image-container:hover img.second-img {
+      opacity: 1;
+    }
+    .card-body {
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-text {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .price {
+      color: #e91e63;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: auto;
+    }
+    .quick-add-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid #000;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      z-index: 10;
+    }
+    .image-container:hover .quick-add-btn {
+      opacity: 1;
+    }
+    .quick-add-btn:hover {
+      background: #000;
+      color: white;
+    }
+
+    /* Shade Selection Overlay */
+    .shade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 15;
+      padding: 20px;
+    }
+    .shade-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .shade-info {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+    .shade-overlay.active .shade-info {
+      transform: translateY(0);
+    }
+    .new-badge {
+      background: #000;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .tone-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tone-option {
+      background: #f0f0f0;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tone-option:hover {
+      background: #e0e0e0;
+    }
+    .tone-option.active {
+      background: #000;
+      color: white;
+      transform: scale(1.05);
+    }
+    .quantity-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .quantity-label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 15px;
+    }
+    .quantity-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 6px 12px;
+    }
+    .qty-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 8px;
+      transition: transform 0.2s ease;
+    }
+    .qty-btn:hover {
+      transform: scale(1.2);
+    }
+    .qty-input {
+      width: 30px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .cancel-btn, .add-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .cancel-btn {
+      background: white;
+      border: 2px solid #000;
+    }
+    .cancel-btn:hover {
+      background: #f5f5f5;
+      transform: translateY(-2px);
+    }
+    .add-btn {
+      background: #000;
+      color: white;
+    }
+    .add-btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    /* View All Button */
+    .view-all-container {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .view-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .view-all-btn:hover {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Sign In Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+    }
+    .modal h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .modal input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .modal button {
+      padding: 12px;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .modal button:hover {
+      background: #333;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* 👣 FOOTER */
+    footer {
+      background-color: #000;
+      padding: 50px 0 20px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .footer-section h3 {
+      font-size: 15px;
+      font-family:'poppins';
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #fff;
+      position: relative;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: #f2cd5e;
+    }
+
+    .footer-section p {
+      color: #fff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family:'poppins';
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-family:'poppins';
+      font-size: 12px
+      
+    }
+
+    .footer-links a:hover {
+      color: #f2cd5e;
+      transform: translateX(5px);
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 20px;  /* previously i add 16px margin but it's too small so thats why i include 20px margin bottom. */
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+    }
+
+    .contact-info i {
+      color: #f2cd5e;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 12px;
+      font-family:'poppins';
+    }
+
+    .contact-info span {
+      color: #fff;
+    }
+
+    .contact-info a:hover {
+      color:#f2cd5e;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 50%;
+      color: #000;
+      font-size: 18px;
+      font-family:'poppins';
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .social-icons a:hover {
+      background-color: #f2cd5e;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(250, 211, 145, 0.4);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid #eaeaea;
+      color: #fff;
+      font-size: 14px;
+      font-family:'poppins';
+    }
+
+
+    /* Responsive - Hamburger shows at 909px */
+    @media (max-width: 909px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #000;
+        z-index: 999;
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 5px 0;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      .header-right {
+        align-items: center;
+        width: 100%;
+      }
+      .header-top-right {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      .search-bar {
+        width: 100%;
+      }
+      .header-icons {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .brand-name {
+        font-size: 18px;
+      }
+      .brand-logo {
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="strip-content">
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+      <span><i class="fa-solid fa-bolt"></i> Free Shipping up to 5000 PKR</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">    
+    <!-- Brand Logo and Name - TOP LEFT CORNER -->
+    <div class="brand">
+      <img src="https://t4.ftcdn.net/jpg/00/95/06/89/360_F_95068917_5llcIF4URMD2CAepffpVcJGfpdx83ufz.jpg" alt="Luvéra Beauty" class="brand-logo">
+      <span class="brand-name">Luvéra Beauty</span>
+    </div>
+    
+    <!-- Header Right Section - TOP RIGHT CORNER -->
+    <div class="header-right">
+      <!-- Customer Service & Search - Below Top Strip -->
+      <div class="header-top-right">
+        <div class="customer-service">
+          <i class="fas fa-headset"></i> Customer Service: +92 3174078664
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search products..." id="search-input">
+        </div>
+      </div>
+      
+      <!-- Header Icons - Below Customer Service & Search -->
+      <div class="header-icons">
+        <a href="#"><i class="fa-solid fa-bag-shopping"></i> Cart (0)</a>
+        <a href="#"><i class="fa-regular fa-heart"></i> Wishlist</a>
+        <a href="#" id="signin-link"><i class="fa-regular fa-user"></i> Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#Home">Home</a>
+            <a href="product.html">All Products</a>
+            <a href="foundation.html#Foundation">Foundation</a>
+            <a href="eyeshadow.html#Eye Shadows">Eye Shadows</a>
+            <a href="lipstick.html#Lipsticks">Lipsticks</a>
+            <a href="hot-deals.html#Hot Deals">Hot Deals</a>
+            <a href="skincare.html#Skin Care">Skin Care</a>
+            <a href="contact.html#Contact Us">Contact Us</a>
+        </div>
+    </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero-section"> 
+    <img src="https://www.shutterstock.com/image-vector/beauty-make-banner-template-face-600nw-1926318266.jpg" alt="Beauty Sale Banner" class="hero-img">
+  </section>
+
+  <!--breadcrumb-->
+  <div id="breadcrumb"></div>
+  
+  <!-- New Arrivals -->
+  <div class="section-title-container">
+    <div class="line"></div>
+    <h2 class="section-title">NEW ARRIVALS</h2>
+    <div class="line"></div>
+  </div>
+
+  <!-- New Arrivals Products -->
+  <div class="container">
+    <div class="products-container">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://onlinemart.com.pk/cdn/shop/files/47253D13-0748-4EFA-AA2C-201AFBD6D3A4.jpg?v=1750866498" class="first-img" alt="Foundation">
+          <img src="https://m.media-amazon.com/images/I/61l3IoWoTOL._UF1000,1000_QL80_.jpg" class="second-img" alt="Foundation">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">New</div>
+            <div class="skin-tone-section">
+              <span class="skin-tone-label">Skin tone:</span>
+              <div class="tone-options">
+                <div class="tone-option active">01 Ivory</div>
+                <div class="tone-option">02 Beige</div>
+                <div class="tone-option">03 Soft Ivory</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Aloe Vera Foundation</h5>
+          <p class="card-text">3 Shades, Natural, SPF25, Oil Free</p>
+          <p class="price">Rs.720.00</p>
+        </div>
+      </div>
+      
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://highfy.pk/cdn/shop/files/Untitled_147fb467-caa0-4389-9232-fe9abf7c4ee9.png?v=1728544213&width=1946" class="first-img" alt="Lipstick">
+          <img src="https://media6.ppl-media.com//tr:h-235,w-235,c-at_max,dpr-2/static/img/product/361113/lamel-powder-drop-matte-lipstick-401-cold-beige-3-8gm_9_display_1690541171_44f58b7d.jpg" class="second-img" alt="Lipstick">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">New</div>
+            <div class="lipsticks-shade-section">
+              <span class="lipsticks-shade-label">Lipstick shades:</span>
+              <div class="tone-options">
+                <div class="tone-option active">L01 Pinky</div>
+                <div class="tone-option">L05 Cranberry</div>
+                <div class="tone-option">L07 Coffea</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Non-Transfer Lipsticks</h5>
+          <p class="card-text">Pore minimizing, makeup longevity.</p>
+          <p class="price">Rs.699.00</p>
+        </div>
+      </div>
+      
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://cheekandchin.com/cdn/shop/products/vitamin-c-serum-178078.jpg?v=1723921370" class="first-img" alt="Serum">
+          <img src="https://sc04.alicdn.com/kf/Hb81226a2c4534606b83b3ed1a15201a9v.png" class="second-img" alt="Serum">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">New</div>
+            <div class="serum-shade-section">
+              <span class="serum-shade-label">Serum:</span>
+              <div class="tone-options">
+                <div class="tone-option active">Vitamin C</div>
+                <div class="tone-option">Vitamin E</div>
+                <div class="tone-option">Anti-aging</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Vitamin C Serum</h5>
+          <p class="card-text">Anti-aging, Brightening serum</p>
+          <p class="price">Rs.1200.00</p>
+        </div>
+      </div>
+      
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://ameena.pk/cdn/shop/files/51795522_2258669861063559_7660750771499040768_n_aa85d74b-9cf8-416d-bbde-fbdd8136d64c.webp?v=1721927269" class="first-img" alt="Eyeshadow">
+          <img src="https://www.wiinkcosmetics.com/cdn/shop/files/9-Color_Eyeshadow_Palette_1Pc_Highly_Pigmented_Long-Wearing_Waterproof_Eyeshadow_Tray_Eye_Shadow_Compact_Eye_Shadow__SHEIN_South_Africa_main_2.jpg?v=1702404968" class="second-img" alt="Eyeshadow">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">New</div>
+            <div class="Eyeshadow-shade-section">
+              <span class="Eyeshadow-shade-label">Eye shadow:</span>
+              <div class="tone-options">
+                <div class="tone-option active">Matte</div>
+                <div class="tone-option">Shimmer</div>
+                <div class="tone-option">Glitter</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Eyeshadow Palette</h5>
+          <p class="card-text">Matte and shimmer collection (4 variants)</p>
+          <p class="price">Rs.950.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skin Care Section -->
+  <div class="section-title-container">
+    <div class="line"></div>
+    <h2 class="section-title">SKIN CARE</h2>
+    <div class="line"></div>
+  </div>
+
+  <!-- View All Button -->
+  <div class="container view-all-container">
+    <a href="skincare.html" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- Skin Care Products -->
+  <div class="container">
+    <div class="products-container">
+      <!-- Skin Care Product 1 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://sokoskins.shop/cdn/shop/files/Nineless-Hydra-Max-Deep-Infusion-Serum_300x300.png?v=1736163808" class="first-img" alt="Serum">
+          <img src="https://m.media-amazon.com/images/I/415WiVo4SzL._UF1000,1000_QL80_.jpg" class="second-img" alt="Serum">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">Bestseller</div>
+            <div class="skin-care-section">
+              <span class="skin-care-label">Size:</span>
+              <div class="tone-options">
+                <div class="tone-option active">30ml</div>
+                <div class="tone-option">50ml</div>
+                <div class="tone-option">100ml</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Hyaluronic Acid Serum</h5>
+          <p class="card-text">Deep Hydration & Plumping Effect</p>
+          <p class="price">Rs.1,250.00</p>
+        </div>
+      </div>
+      
+      <!-- Skin Care Product 2 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://static-01.daraz.pk/p/945992a9d305475911e3b2d32cb79062.jpg" class="first-img" alt="Body Scrub">
+          <img src="https://mesugatra.com/cdn/shop/products/CMB191_4_1445x.jpg?v=1680613762" class="second-img" alt="Body Scrub">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">Popular</div>
+            <div class="skin-care-section">
+              <span class="skin-care-label">Size:</span>
+              <div class="tone-options">
+                <div class="tone-option active">Small</div>
+                <div class="tone-option">Medium</div>
+                <div class="tone-option">Large</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Body Scrub</h5>
+          <p class="card-text">Glowy and soft skin</p>
+          <p class="price">Rs.1,100.00</p>
+        </div>
+      </div>
+      
+      <!-- Skin Care Product 3 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://koreanskincare.co.uk/cdn/shop/files/167224790_440568970554111_6704129984267255376_n_94db6abf-31ec-41a8-a6e8-4395bafb67df_785x.jpg?v=1751283350" class="first-img" alt="Balm">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_czYZ7k1e8Pf2x2RQUO4C8p_uNyIaH9CiHbU6XWACI-Z80BiZiQmnz9TNQw3ofa5lQw&usqp=CAU" class="second-img" alt="Balm">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">Soothing</div>
+            <div class="skin-care-section">
+              <span class="skin-care-label">Size:</span>
+              <div class="tone-options">
+                <div class="tone-option active">40ml</div>
+                <div class="tone-option">100ml</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Repairing Balm</h5>
+          <p class="card-text">Soothes & Restores Damaged Skin</p>
+          <p class="price">Rs.450.00</p>
+        </div>
+      </div>
+      
+      <!-- Skin Care Product 4 -->
+      <div class="product-card">
+        <div class="image-container">
+          <img src="https://dermatechno.com/cdn/shop/files/6_0d253452-ba21-436b-a37d-2038f102b869_1080x.png.jpg?v=1726474533" class="first-img" alt="Sunblock">
+          <img src="https://dermatechno.com/cdn/shop/files/5_c17cf8f9-f353-4367-bf81-459b43d33861_1080x.png.jpg?v=1726474533" class="second-img" alt="Sunblock">
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="shade-overlay">
+          <div class="shade-info">
+            <div class="new-badge">Sunblock</div>
+            <div class="skin-care-section">
+              <span class="skin-care-label">Skin Type:</span>
+              <div class="tone-options">
+                <div class="tone-option active">All Skin Types</div>
+              </div>
+            </div>
+            <div class="quantity-section">
+              <span class="quantity-label">Quantity:</span>
+              <div class="quantity-box">
+                <button class="qty-btn minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+            <div class="buttons">
+              <button class="cancel-btn">CANCEL</button>
+              <button class="add-btn">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">LUVERA Gel Base Sunblock</h5>
+          <p class="card-text">Firming & harmful rays protection</p>
+          <p class="price">Rs.850.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign In Modal -->
+  <div id="signin-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Sign In</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+      </form>
+      <p style="text-align:center; margin-top:15px; font-size:14px;">
+        Don't have an account? <a href="#" style="color:#000; font-weight:500;">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/923174078664" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>ABOUT US</h3>
+        <p>At Luvéra Beauty, we believe beauty is more than just empowered—it's about confidence and self-care. Our products are designed to make beauty simple, safe, and enjoyable.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>INFORMATION</h3>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Returns & Cancellation</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return & Exchange</a></li>
+          <li><a href="#">Terms Of Service</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>SHOP</h3>
+        <ul class="footer-links">
+          <li><a href="eyeshadow.html">Eyeshadow</a></li>
+          <li><a href="foundation.html">Foundation</a></li>
+          <li><a href="lipsticks.html">Lipsticks</a></li>
+          <li><a href="hot-deals.html">Hot Deals</a></li>
+          <li><a href="skincare.html">Skin Care</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>CONTACT US</h3>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <a href="https://wa.me/923174078664" target="_blank">+92 317 4078 664</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:info@luverabeauty.com">info@luverabeauty.com</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Shah Alam Market, Lahore</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>Luvéra Beauty. All Rights Reserved. Create and Designed By Hamdah Khalid.</p>
+    </div>
+  </footer>
+
+  <script>
+ // hamburger toggle          
+ const hamburger = document.getElementById('hamburger');
+ const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+   navLinks.classList.toggle('active');
+        });
+
+    // Sign In Modal
+    const signinModal = document.getElementById('signin-modal');
+    const signinLink = document.getElementById('signin-link');
+    const closeModal = document.querySelector('.close-modal');
+    
+    signinLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      signinModal.style.display = 'block';
+    });
+    
+    closeModal.addEventListener('click', () => {
+      signinModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === signinModal) {
+        signinModal.style.display = 'none';
+      }
+    });
+
+    // Search Functionality
+    const searchInput = document.getElementById('search-input');
+    
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+          alert(`Searching for: ${searchTerm}`);
+        }
+      }
+    });
+
+    // Product Quick Add Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const quickAddBtns = document.querySelectorAll('.quick-add-btn');
+      const shadeOverlays = document.querySelectorAll('.shade-overlay');
+      const cancelBtns = document.querySelectorAll('.cancel-btn');
+      const addBtns = document.querySelectorAll('.add-btn');
+      const minusBtns = document.querySelectorAll('.minus');
+      const plusBtns = document.querySelectorAll('.plus');
+      const qtyInputs = document.querySelectorAll('.qty-input');
+      const toneOptions = document.querySelectorAll('.tone-option');
+      
+      // Toggle shade overlay when Quick Add is clicked
+      quickAddBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          shadeOverlays[index].classList.add('active');
+        });
+      });
+      
+      // Close shade overlay when Cancel is clicked
+      cancelBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          shadeOverlays[index].classList.remove('active');
+        });
+      });
+      
+      // Quantity controls
+      minusBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+          let currentValue = parseInt(qtyInputs[index].value);
+          if (currentValue > 1) {
+            qtyInputs[index].value = currentValue - 1;
+          }
+        });
+      });
+      
+      plusBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+          let currentValue = parseInt(qtyInputs[index].value);
+          qtyInputs[index].value = currentValue + 1;
+        });
+      });
+      
+      // Tone option selection
+      toneOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const parent = this.closest('.tone-options');
+          parent.querySelectorAll('.tone-option').forEach(opt => {
+            opt.classList.remove('active');
+          });
+          this.classList.add('active');
+        });
+      });
+      
+      // Add to cart functionality
+      addBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+          const productCard = this.closest('.product-card');
+          const productName = productCard.querySelector('.card-title').textContent;
+          const quantity = parseInt(productCard.querySelector('.qty-input').value);
+          const selectedTone = productCard.querySelector('.tone-option.active').textContent;
+          
+          alert(`Added to cart: ${productName}\nShade: ${selectedTone}\nQuantity: ${quantity}`);
+          shadeOverlays[index].classList.remove('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
